@@ -1,7 +1,13 @@
-{% for seller in sellers%}
-    {{seller.cni}}
-    <br/>
-    {{seller.email}}
-    <br/>
-    {{seller.image}}
-{% endfor %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+
+
+<div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action active">
+      Liste of New Sellers 
+    </a>
+    {% for seller in sellers%}
+    <a href="{% url 'seller:seller_detail' seller.id %}" class="list-group-item list-group-item-action">{{ seller.first_name }}-{{ seller.last_name }}</a>
+
+    {% endfor %}
+  </div>

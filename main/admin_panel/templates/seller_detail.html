@@ -1,0 +1,9 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+<h1>Seller Details</h1>
+<p>Name: {{ seller.first_name }} {{ seller.last_name }}</p>
+<p>Email: {{ seller.email }}</p>
+<p>CNI: {{seller.cni}}</p>
+<p>Address: {{seller.address}}</p>
+<p>Phone Number : {{seller.phone_number}}</p>
+<button type="'button" class="btn btn-success">Accept</button>
