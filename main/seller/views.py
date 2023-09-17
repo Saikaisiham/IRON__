@@ -6,7 +6,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from .models import SellerProfile
 
-# ...
+
 
 def register(request):
     if request.method == 'POST':

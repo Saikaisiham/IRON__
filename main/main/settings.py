@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'seller',
     'products',
     'categories',
-    'base'
+    'base',
+    'admin_panel'
 
 ]
 
