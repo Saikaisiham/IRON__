@@ -54,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'main.urls'
@@ -134,5 +135,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # bootsratp config
-
 CRISPY_TEMPLATE_PATH ='bootstrap5'
+
+
+#backends config
+AUTHENTICATION_BACKENDS = [
+    'seller.backends.EmailCNIAuthBackend',
+]
