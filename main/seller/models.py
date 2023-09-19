@@ -18,7 +18,7 @@ class SellerProfile(models.Model):
     image = models.ImageField(upload_to='seller/')
     address = models.TextField()
     phone_number = models.CharField(max_length=100, default='')
-
+    is_seller = models.BooleanField(default=True)
 
 
 

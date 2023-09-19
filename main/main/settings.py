@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'products',
     'categories',
     'base',
-    'admin_panel'
+    'admin_panel',
+    'users'
 
 ]
 
@@ -142,4 +143,14 @@ CRISPY_TEMPLATE_PATH ='bootstrap5'
 #backends config
 AUTHENTICATION_BACKENDS = [
     'seller.backends.EmailCNIAuthBackend',
+    'django.contrib.auth.backends.ModelBackend',
 ]
+
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'testdjangoemail@gmail.com'
+EMAIL_HOST_PASSWORD = 'djangosendemail2023@@'

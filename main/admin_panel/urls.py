@@ -5,5 +5,5 @@ app_name = 'seller'
 
 urlpatterns = [
     path('', sellers_forms),
-    path('detail/<int:seller_id>/', details, name='seller_detail')
+    path('detail/<int:seller_id>/', details, name='seller_detail'),
 ]
