@@ -4,5 +4,5 @@ from .views import index, joinus
 
 urlpatterns = [
     path('',index),
-    path('joinus/', joinus)
+    path('joinus/', joinus),
 ]

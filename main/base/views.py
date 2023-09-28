@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from products.models import Product
 from categories.models import Category
+from django.http import JsonResponse
 
 # Create your views here.
 
