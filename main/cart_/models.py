@@ -13,14 +13,15 @@ class Cart(models.Model):
 
 
     def __str__(self):
-        return self.id
+        return str(self.user.username)
 
 
 class CartItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='items')
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name='cartitems')
-    quantity = models.IntegerField(default=0)
+    quantity = models.IntegerField(default=1)
+    source = models.CharField(max_length=255, blank=True)
 
     def __str__(self):
-        return  self.product.name
+        return  self.product.product_name
 

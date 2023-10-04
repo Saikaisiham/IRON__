@@ -29,7 +29,7 @@ def login_page(request):
                 login(request, user)
                 print(request.POST)
                 messages.info(request, f'You are now logged in as {username}')
-                return redirect('/products')  
+                return redirect('/')  
             else:
                 messages.error(request, 'Invalid username or password')
         else:
