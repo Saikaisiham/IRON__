@@ -33,3 +33,4 @@ def proxy_view(request):
         return JsonResponse(response.json())
     else:
         return JsonResponse({'error': 'Invalid request method.'}, status=405)
+
