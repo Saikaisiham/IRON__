@@ -1,0 +1,17 @@
+{% block content %}
+    <h1>Products</h1>
+    <ul>
+        {% for product in filter %}
+            <li>
+                <h2>{{ product.product_name }}</h2>
+                <img src="{{ product.product_image.url }}" alt="">
+                <p>{{ product.description }}</p>
+                <p>Price: {{ product.current_price }}</p>
+            </li>
+        {% empty %}
+            <p>No products found for the selected category.</p>
+        {% endfor %}
+    </ul>
+
+   
+{% endblock %}

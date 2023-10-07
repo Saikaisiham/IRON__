@@ -46,9 +46,9 @@
               <ul class="dropdown-menu dropdown-menu-left " aria-labelledby="navbarDropdownMenuLink">
                 <li><hr class="dropdown-divider" /></li>
                 {% for category in categories %}
-                <li><a class="dropdown-item" href="#">{{category.category_name}}</a></li>
+                <li><a class="dropdown-item" href="{% url 'search' %}?category={{ category.id }}">{{ category.category_name }}</a></li>
                 {% endfor %}
-              </ul>
+            </ul>
             </li>
             <li>
               <div class="form-outline">
@@ -72,11 +72,13 @@
       <header class="text-center mb-5">
         <h1 class="display-4 font-weight-bold"> Products</h1>
          <p class="font-italic text-muted mb-0"></p>
+         {% if  user.is_authenticated %}
         <p class="font-italic text-muted">{{request.user.username}} 
             
         </p>
-        <a href="">Logout</a>
+        <a href="clients/logout/">Logout</a>
       </header>
+        {% endif %}
       
     
       <!-- First Row [Prosucts]-->
