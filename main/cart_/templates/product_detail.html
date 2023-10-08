@@ -1,0 +1,23 @@
+{% block content %}
+<h1>Product Details</h1>
+{% if user.is_authenticated %}
+    <form method="post" action="">
+        {% csrf_token %}
+        <button type="submit">
+            {% if is_favorite %}
+                Remove from Favorites
+            {% else %}
+                Add to Favorites
+            {% endif %}
+        </button>
+    </form>
+{% endif %}
+
+
+<div class="product-details">
+    <h2>{{ product.product_name }}</h2>
+    <img src="{{ product.product_image.url }}" alt="{{ product.product_name }}">
+    <p>{{ product.description }}</p>
+</div>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% block content %}
+<h1>Favorite Products</h1>
+<ul>
+    {% for favorite_product in favorite_products %}
+        <li>{{ favorite_product.product_id }}</li>
+    {% empty %}
+        <li>No favorite products.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

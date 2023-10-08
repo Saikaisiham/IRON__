@@ -25,3 +25,9 @@ class CartItem(models.Model):
     def __str__(self):
         return  self.product.product_name
 
+
+
+
+class Favorite(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    product_id = models.IntegerField()

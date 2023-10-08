@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect
-from .models import Cart, CartItem
+from .models import Cart, CartItem, Favorite
 from products.models import Product
 from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
+
+
 
 def cart_view(request):
     cart = Cart.objects.get_or_create(user=request.user)[0]
@@ -47,3 +50,30 @@ def update_quantity(request, cart_item_id):
         except Exception as e:
             return JsonResponse({'success': False, 'error_message': str(e)})
     return JsonResponse({'success': False, 'error_message': 'Invalid request method'})
+
+
+
+@login_required
+def add_remove_favorite(request, product_id):
+    user = request.user
+    if user.is_authenticated:
+        try:
+            favorite = Favorite.objects.get(user=user, product_id=product_id)
+            favorite.delete()
+        except Favorite.DoesNotExist:
+            Favorite.objects.create(user=user, product_id=product_id)
+        
+        favorite_product_ids = user.favorite_set.values_list('product_id', flat=True)
+        
+        return render(request, 'product_detail.html', {'product_id': product_id, 'favorite_product_ids': favorite_product_ids})
+    return redirect('/clients/login_user/')
+
+
+
+
+def favorite_products(request):
+    user = request.user
+    if user.is_authenticated:
+        favorite_products = Favorite.objects.filter(user=user)
+        return render(request, 'favorites.html', {'favorite_products': favorite_products})
+    return redirect('/clients/login_user/')
