@@ -10,14 +10,14 @@ import requests
 # Create your views here.
 
 def index(request): 
-    products = Product.objects.all()
+    products = Product.objects.all()[:12]
     categories = Category.objects.all()
     context = {
         'products': products,
         'categories' : categories,
     }
     # print(len(products))  
-    return render(request, 'index.html', context)
+    return render(request, 'index_.html', context)
 
 def joinus(request):
     return render(request, 'joinus.html')
@@ -51,4 +51,4 @@ def search(request):
     # Debugging line to inspect the filtered products
     print(f"Filtered products: {list(category_filter)}")
 
-    return render(request, 'product.html', {'filter': category_filter})
+    return render(request, 'product_.html', {'filter': category_filter})

@@ -14,6 +14,7 @@ def cart_view(request):
 
 
 def add_to_cart(request, product_id):
+    print("product_id:", product_id)
     cart = Cart.objects.get_or_create(user=request.user)[0]
     product = Product.objects.get(id=product_id)
     
